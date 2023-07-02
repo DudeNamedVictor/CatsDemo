@@ -19,16 +19,19 @@ class CatsDemoActivity : AppCompatActivity() {
         when (it.itemId) {
             R.id.navigation_cats -> {
                 binding.viewPager.currentItem = CATS_FRAGMENT
+                supportActionBar?.title = getString(R.string.title_cats)
                 return@OnItemSelectedListener true
             }
 
             R.id.navigation_voting -> {
                 binding.viewPager.currentItem = VOTING_FRAGMENT
+                supportActionBar?.title = getString(R.string.title_voting)
                 return@OnItemSelectedListener true
             }
 
             R.id.navigation_favourites -> {
                 binding.viewPager.currentItem = FAVOURITES_FRAGMENT
+                supportActionBar?.title = getString(R.string.title_favourites)
                 return@OnItemSelectedListener true
             }
         }
@@ -40,7 +43,6 @@ class CatsDemoActivity : AppCompatActivity() {
 
         _binding = CatsDemoLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.hide()
 
         initializeViewPager()
     }
@@ -58,14 +60,23 @@ class CatsDemoActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 when (position) {
-                    CATS_FRAGMENT -> binding.navView.menu.findItem(R.id.navigation_cats).isChecked =
-                        true
+                    CATS_FRAGMENT -> {
+                        binding.navView.menu.findItem(R.id.navigation_cats).isChecked =
+                            true
+                        supportActionBar?.title = getString(R.string.title_cats)
+                    }
 
-                    VOTING_FRAGMENT -> binding.navView.menu.findItem(R.id.navigation_voting).isChecked =
-                        true
+                    VOTING_FRAGMENT -> {
+                        binding.navView.menu.findItem(R.id.navigation_voting).isChecked =
+                            true
+                        supportActionBar?.title = getString(R.string.title_voting)
+                    }
 
-                    FAVOURITES_FRAGMENT -> binding.navView.menu.findItem(R.id.navigation_favourites).isChecked =
-                        true
+                    FAVOURITES_FRAGMENT -> {
+                        binding.navView.menu.findItem(R.id.navigation_favourites).isChecked =
+                            true
+                        supportActionBar?.title = getString(R.string.title_favourites)
+                    }
                 }
             }
         })

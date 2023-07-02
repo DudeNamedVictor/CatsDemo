@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_cats"
+        android:icon="@drawable/baseline_image_24"
+        android:title="@string/title_cats" />
+
+    <item
+        android:id="@+id/navigation_voting"
+        android:icon="@drawable/baseline_star_24"
+        android:title="@string/title_voting" />
+
+    <item
+        android:id="@+id/navigation_favourites"
+        android:icon="@drawable/baseline_favorite_24"
+        android:title="@string/title_favourites" />
+
+</menu>

@@ -5,7 +5,6 @@ import com.example.catsdemo.data.repositories.catsfragment.CatsRepositoryImpl
 import com.example.catsdemo.data.service.NetworkModule
 import com.example.catsdemo.data.utils.Service
 import com.example.catsdemo.domain.usecases.GetCatsUseCase
-import com.example.catsdemo.presentation.fragments.cats.CatsViewModel
 import dagger.Component
 import dagger.Module
 import dagger.Provides
@@ -15,7 +14,7 @@ import javax.inject.Singleton
 @Component(modules = [AppModule::class, CatsModule::class])
 interface AppComponent {
 
-    fun inject(catsViewModel: CatsViewModel)
+    fun getCatsUseCase(): GetCatsUseCase
 
 }
 

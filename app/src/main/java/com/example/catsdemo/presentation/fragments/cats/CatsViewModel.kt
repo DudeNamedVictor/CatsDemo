@@ -1,26 +1,32 @@
 package com.example.catsdemo.presentation.fragments.cats
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.catsdemo.domain.usecases.GetCatsUseCase
-import com.example.catsdemo.presentation.MainApplication
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class CatsViewModel(application: Application) : AndroidViewModel(application) {
-
-    @Inject
-    lateinit var catsUseCase: GetCatsUseCase
+class CatsViewModel(
+    private val getCatsUseCase: GetCatsUseCase
+) : ViewModel() {
 
     init {
-        getApplication<MainApplication>()
-            .appComponent
-            .inject(this)
-
         viewModelScope.launch {
-            val test =  catsUseCase.invoke(10, 10)
+            val test = getCatsUseCase.invoke(10, 10)
             test
+        }
+
+    }
+
+    class CatsViewModelFactory(
+        private val getCatsUseCase: GetCatsUseCase
+    ) : ViewModelProvider.NewInstanceFactory() {
+
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return CatsViewModel(
+                getCatsUseCase
+            ) as T
         }
 
     }

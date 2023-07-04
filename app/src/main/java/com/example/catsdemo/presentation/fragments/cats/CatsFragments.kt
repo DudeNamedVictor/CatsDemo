@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.catsdemo.databinding.CatsLayoutBinding
+import com.example.catsdemo.presentation.MainApplication
 
 class CatsFragments : Fragment() {
 
@@ -14,7 +15,11 @@ class CatsFragments : Fragment() {
     private val binding: CatsLayoutBinding
         get() = _binding!!
 
-    private val viewModel: CatsViewModel by viewModels()
+    private val viewModel: CatsViewModel by viewModels {
+        CatsViewModel.CatsViewModelFactory(
+            (requireActivity().application as MainApplication).appComponent.getCatsUseCase()
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

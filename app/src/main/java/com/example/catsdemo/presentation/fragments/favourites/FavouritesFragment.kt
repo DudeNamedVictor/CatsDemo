@@ -1,4 +1,4 @@
-package com.example.catsdemo.ui.fragments.favourites
+package com.example.catsdemo.presentation.fragments.favourites
 
 import android.os.Bundle
 import android.view.LayoutInflater

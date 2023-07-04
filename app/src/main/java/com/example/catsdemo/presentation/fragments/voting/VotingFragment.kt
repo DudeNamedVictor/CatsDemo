@@ -1,4 +1,4 @@
-package com.example.catsdemo.ui.fragments.voting
+package com.example.catsdemo.presentation.fragments.voting
 
 import android.os.Bundle
 import android.view.LayoutInflater

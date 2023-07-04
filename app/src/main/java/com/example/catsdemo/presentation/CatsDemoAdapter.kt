@@ -1,14 +1,14 @@
-package com.example.catsdemo.ui
+package com.example.catsdemo.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.catsdemo.ui.CatsDemoActivity.Companion.CATS_FRAGMENT
-import com.example.catsdemo.ui.CatsDemoActivity.Companion.FAVOURITES_FRAGMENT
-import com.example.catsdemo.ui.CatsDemoActivity.Companion.VOTING_FRAGMENT
-import com.example.catsdemo.ui.fragments.cats.CatsFragments
-import com.example.catsdemo.ui.fragments.favourites.FavouritesFragment
-import com.example.catsdemo.ui.fragments.voting.VotingFragment
+import com.example.catsdemo.presentation.CatsDemoActivity.Companion.CATS_FRAGMENT
+import com.example.catsdemo.presentation.CatsDemoActivity.Companion.FAVOURITES_FRAGMENT
+import com.example.catsdemo.presentation.CatsDemoActivity.Companion.VOTING_FRAGMENT
+import com.example.catsdemo.presentation.fragments.cats.CatsFragments
+import com.example.catsdemo.presentation.fragments.favourites.FavouritesFragment
+import com.example.catsdemo.presentation.fragments.voting.VotingFragment
 
 class CatsDemoAdapter(appCompatActivity: AppCompatActivity) :
     FragmentStateAdapter(appCompatActivity) {

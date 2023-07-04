@@ -1,4 +1,4 @@
-package com.example.catsdemo.ui
+package com.example.catsdemo.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

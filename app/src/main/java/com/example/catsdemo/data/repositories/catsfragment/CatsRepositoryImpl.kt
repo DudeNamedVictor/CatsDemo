@@ -4,7 +4,7 @@ import com.example.catsdemo.data.mappers.CatsApiResponseMapper
 import com.example.catsdemo.data.service.NetworkModule
 import com.example.catsdemo.domain.entities.Cats
 import com.example.catsdemo.domain.repositories.CatsRepository
-import com.example.catsdemo.domain.common.Result
+import com.example.catsdemo.domain.common.ResponceResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -13,19 +13,19 @@ class CatsRepositoryImpl(
     private val catsApiResponseMapper: CatsApiResponseMapper
 ) : CatsRepository {
 
-    override suspend fun getCats(limit: Int, page: Int): Result<List<Cats>> =
+    override suspend fun getCats(limit: Int, page: Int): ResponceResult<List<Cats>> =
         withContext(Dispatchers.IO) {
             try {
                 val response = networkModule.getCats(limit, page)
                 if (response.isSuccessful) {
-                    return@withContext Result.Success(
+                    return@withContext ResponceResult.Success(
                         catsApiResponseMapper.toCatsList(response.body() ?: emptyList())
                     )
                 } else {
-                    return@withContext Result.Error(Exception(response.message()))
+                    return@withContext ResponceResult.Error(Exception(response.message()))
                 }
             } catch (e: Exception) {
-                return@withContext Result.Error(e)
+                return@withContext ResponceResult.Error(e)
             }
         }
 

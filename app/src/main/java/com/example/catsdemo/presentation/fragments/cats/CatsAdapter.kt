@@ -1,7 +1,9 @@
 package com.example.catsdemo.presentation.fragments.cats
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -29,7 +31,10 @@ class CatsAdapter : PagingDataAdapter<CatsRecyclerModel, RecyclerView.ViewHolder
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindTo(model: CatsRecyclerModel) {
-            binding.image.load(model.url)
+            binding.apply {
+                image.load(model.url)
+                progressCircular.isVisible = false
+            }
         }
 
     }
